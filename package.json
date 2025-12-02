@@ -1,0 +1,26 @@
+{
+  "name": "rikanavi",
+  "version": "1.16.0",
+  "description": "中学理科学習ナビゲーター",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vercel dev",
+    "deploy": "vercel --prod"
+  },
+  "keywords": [
+    "education",
+    "science",
+    "learning",
+    "middle-school",
+    "LOD"
+  ],
+  "author": "Masa",
+  "license": "MIT",
+  "devDependencies": {
+    "vercel": "^33.0.0"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1"
+  }
+}
