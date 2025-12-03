@@ -601,10 +601,7 @@
             );
         };
 
-        // ⚠️ 本番環境への移行時の注意事項:
-        // このAPIキーはクライアントサイドに露出しています
-        // 本番環境ではサーバーサイド（Vercel Functions等）経由に変更してください
-        const NHK_API_KEY = "FXAqkccApEqOhJ8YDJV2ggmzh7GYsSzg";
+        // NHK API はサーバーサイドプロキシ(/api/nhk)経由で呼び出し
         
         // 再生時間をフォーマット（PT0H2M9S → 2:09）
         const formatDuration = (duration) => {
@@ -650,7 +647,8 @@
                 setShowNhkVideos(true);
                 
                 try {
-                    const url = `https://api.nhk.or.jp/school/v2/nfsvideos/cscode/${csCode}?apikey=${NHK_API_KEY}&perpage=10`;
+                    // サーバーサイドプロキシ経由でNHK APIを呼び出し
+                    const url = `/api/nhk?cscode=${csCode}`;
                     const response = await fetch(url);
                     
                     if (!response.ok) {
